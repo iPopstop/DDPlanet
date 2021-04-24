@@ -1,0 +1,54 @@
+{
+	"default_config": {
+	    "locale": "ru",
+	    "timezone": "Europe/Moscow",
+	    "date_format": "DD-MM-YYYY",
+	    "time_format": "HH:mm",
+	    "page_length": 10,
+	    "footer_credit": "Created with love by Popstop"
+	},
+	"default_role": {
+		"admin": "Администратор",
+        "employee": "Сотрудник"
+	},
+	"hidden_field": "xxxxxxxxxx",
+	"private_config_variables": [],
+	"public_config": [
+        "date_format",
+        "time_format",
+        "footer_credit"
+	],
+	"pagination": [
+		"1","10","20","50"
+	],
+	"default_permission": [],
+	"social_login_providers": [],
+	"date_formats": [
+		{
+			"text": "DD-MM-YYYY",
+			"value": "DD-MM-YYYY"
+		},
+		{
+			"text": "MM-DD-YYYY",
+			"value": "MM-DD-YYYY"
+		},
+		{
+			"text": "DD-MMM-YYYY",
+			"value": "DD-MMM-YYYY"
+		},
+		{
+			"text": "MMM-DD-YYYY",
+			"value": "MMM-DD-YYYY"
+		}
+	],
+	"time_formats": [
+		{
+			"text": "H:mm",
+			"value": "H:mm"
+		},
+		{
+			"text": "h:mm a",
+			"value": "h:mm a"
+		}
+	]
+}

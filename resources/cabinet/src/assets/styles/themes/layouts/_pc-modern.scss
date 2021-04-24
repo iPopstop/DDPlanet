@@ -1,0 +1,54 @@
+// ============================
+//     Modern Layout css start
+// ============================
+
+.modern-layout {
+    @media (min-width: 1025px) {
+        .pc-sidebar {
+            top: calc(#{$header-height} + 30px);
+            bottom: 30px;
+            left: 30px;
+
+            .navbar-content {
+                height: calc(100vh - 70px - #{$header-height});
+            }
+        }
+
+        .page-header {
+            background: transparent;
+            box-shadow: none;
+            left: calc(#{$sidebar-width} + 30px);
+            top: calc(#{$header-height} + 30px);
+        }
+
+        .pc-header {
+            left: 0;
+            z-index: 1029;
+        }
+
+        .pc-container {
+            margin-left: calc(#{$sidebar-width} + 30px);
+
+            .pcoded-content {
+                padding-top: calc(40px + 55px);
+            }
+        }
+    }
+    @media (max-width: 1024px) {
+        .pc-sidebar {
+            .navbar-content {
+                height: 100vh;
+            }
+        }
+        .pc-header {
+            .b-brand {
+                display: none;
+            }
+        }
+
+    }
+    .pct-customizer{
+        display: none;
+    }
+}
+// Modern Layout css end

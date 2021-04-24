@@ -1,0 +1,13 @@
+*
+**/node_modules/**
+**/config/**
+**/build/**
+**/static/**
+src/dist
+*.svg
+*.md
+**/components/form/**
+**/components/vue-form-generator/**
+**/components/fgen/**
+_eslintrc.js
+plopfile.js

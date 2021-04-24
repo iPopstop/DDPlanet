@@ -1,0 +1,62 @@
+// ============================
+//     Chat css start
+// ============================
+
+.pc-chat {
+    .c-compose {
+        width: 450px;
+        position: fixed;
+        bottom: 0;
+        right: 30px;
+        background: #fff;
+        box-shadow: 0 4px 24px 0 rgba(62, 57, 107, 0.18);
+    }
+
+    .c-body,
+    .c-footer,
+    .c-head {
+        padding: 20px 30px;
+    }
+
+    .c-head {
+        padding: 20px 30px;
+        border-bottom: 1px dashed $border-color;
+        .c-action{
+            position: absolute;
+            right: 30px;
+            a{
+                color: $body-color;
+            }
+        }
+    }
+
+    .c-footer {
+        border-top: 1px dashed $border-color;
+        padding: 20px 30px;
+    }
+
+    .chat-wrapper {
+        height: 250px;
+    }
+
+    .c-message {
+        padding: 15px 20px;
+        display: inline-block;
+        border-radius: 4px;
+        margin-bottom: 15px;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        &.send {
+            float: right;
+            background: transparentize($primary, 0.9);
+        }
+
+        &.receive {
+            background: transparentize($success, 0.9);
+        }
+    }
+}
+// Chat css end

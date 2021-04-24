@@ -1,0 +1,135 @@
+// ============================
+//     Tab Layout css start
+// ============================
+
+.tab-layout {
+    .tab-container {
+        display: flex;
+        @media (max-width: 1024px) {
+            background: inherit;
+        }
+    }
+    .navbar-wrapper{
+        width: calc(#{$sidebar-width} - 57px);
+    }
+    .pc-tabcontent:not(.active) {
+        display: none;
+    }
+    .pc-sidebar.light-sidebar .m-header{
+        background: transparent;
+    }
+    .tab-sidemenu {
+        width: 57px;
+        padding: 14px 4px;
+        justify-content: center;
+        .nav-link {
+            cursor: pointer;
+            color: $sidebar-color;
+            position: relative;
+            padding: 0.5rem 0.9rem;
+            font-size: 24px;
+            border-radius: 4px;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        li {
+            +li {
+                .nav-link {
+                    margin-top: 20px;
+                    opacity: 0.7;
+                }
+            }
+
+            &:focus,
+            &:hover,
+            &.active {
+                .nav-link {
+                    box-shadow: 0 9px 9px -1px rgba(69, 90, 100, 0.1);
+                    background: rgba(0,0,0,0.15);
+                    opacity: 1;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        right: -24px;
+                        top: calc(50% - 10px);
+                        border: 10px solid transparent;
+                        border-left-color: $primary;
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+
+        &[class*='bg-'] {
+            .nav-link {
+                color: #fff;
+            }
+        }
+    }
+    .pct-customizer{
+        display: none;
+    }
+}
+
+.pc-horizontal.pc-tab-horizontal {
+    background: $dark;
+
+    .pcoded-content {
+        background: $body-bg;
+        border-radius: 0 0 4px 4px;
+        margin-bottom: 50px;
+    }
+
+    .topbar {
+        position: relative;
+        height: auto;
+        top: calc(#{$header-height} + 60px);
+        background: transparent;
+
+        .pc-tabcontent:not(.active) {
+            display: none;
+        }
+
+        .tab-sidemenu {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-wrapper,
+        .tab-sidemenu li.active > .nav-link {
+            background: $sidebar-background;
+        }
+        .navbar-wrapper{
+            padding: 0 1.4rem;
+            border-radius: 0 6px 0 0;
+        }
+        .tab-sidemenu li > .nav-link {
+            cursor: pointer;
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px 6px 0 0;
+        }
+        &.light-sidebar {
+            background: transparent;
+
+            .navbar-wrapper,
+            .tab-sidemenu li.active > .nav-link {
+                background: #fff;
+                color: $sidebar-background;
+            }
+            .tab-sidemenu li > .nav-link {
+                background: rgba(255,255,255,0.3);
+                color: #fff;
+            }
+        }
+    }
+    @media (max-width: 992px){
+        .pc-container{
+            margin-top: 30px;
+        }
+    }
+}
+// Tab Layout css end

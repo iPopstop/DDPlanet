@@ -1,0 +1,3 @@
+resources/compiled
+**/node_modules
+node_modules

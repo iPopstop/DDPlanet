@@ -1,0 +1,49 @@
+// ============================
+//     creative Layout css start
+// ============================
+
+.creative-layout {
+    .pc-sidebar {
+        .pc-caption {
+            display: none;
+        }
+
+        &.light-sidebar {
+
+        }
+
+        .pc-navbar {
+            > .pc-item {
+                > .pc-link {
+                    padding: 25px 30px;
+                }
+
+                + .pc-item {
+                    > .pc-link {
+                        border-top: 1px solid transparentize($sidebar-color , 0.9);
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        .pc-sidebar {}
+
+        .page-header {}
+
+        .pc-header {}
+
+        .pc-container {
+            .pcoded-content {}
+        }
+    }
+    @media (max-width: 1024px) {
+        .pc-sidebar {
+            .navbar-content {}
+        }
+    }
+    .pct-customizer{
+        display: none;
+    }
+}
+// creative Layout css end
