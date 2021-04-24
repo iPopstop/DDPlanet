@@ -1,6 +1,5 @@
-/* eslint-disable */
 import API from '@/api'
-// noinspection all
+
 const actions = {
     login({ dispatch, commit }, payload) {
         return new Promise((resolve, reject) => {

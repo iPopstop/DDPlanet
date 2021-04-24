@@ -14,22 +14,28 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        for($i = 1; $i < 3; $i++) {
+            $name = "administrator{$i}@popstop.space";
+            $admin = User::create([
+                'email' => $name,
+                'password' => bcrypt($name),
+                'first_name' => 'Администратор',
+                'last_name' => 'Номер',
+                'patronymic' => "#{$i}",
+            ]);
+            $admin->assignRole('Администратор');
+        }
 
-        $admin = User::create([
-            'email' => 'administrator@popstop.space',
-            'password' => bcrypt('administrator@popstop.space'),
-            'first_name' => 'Вячеслав',
-            'last_name' => 'Кутов',
-            'patronymic' => 'Васильевич',
-        ]);
-        $admin->assignRole('Администратор');
-        $user = User::create([
-            'email' => 'employee@popstop.space',
-            'password' => bcrypt('employee@popstop.space'),
-            'first_name' => 'Сотрудник',
-            'last_name' => 'Номер',
-            'patronymic' => 'Один',
-        ]);
-        $user->assignRole('Сотрудник');
+        for($i = 1; $i < 6; $i++) {
+            $name = "employee{$i}@popstop.space";
+            $user = User::create([
+                'email' => $name,
+                'password' => bcrypt($name),
+                'first_name' => 'Сотрудник',
+                'last_name' => 'Номер',
+                'patronymic' => "#{$i}",
+            ]);
+            $user->assignRole('Сотрудник');
+        }
     }
 }

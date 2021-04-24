@@ -30,11 +30,11 @@ export default {
     },
     loginAs(type) {
       if(type === 'admin') {
-        this.loginForm.email = 'administrator@popstop.space'
-        this.loginForm.password = 'administrator@popstop.space'
+        this.loginForm.email = 'administrator1@popstop.space'
+        this.loginForm.password = 'administrator1@popstop.space'
       }else{
-        this.loginForm.email = 'employee@popstop.space'
-        this.loginForm.password = 'employee@popstop.space'
+        this.loginForm.email = 'employee1@popstop.space'
+        this.loginForm.password = 'employee1@popstop.space'
       }
       this.handleLogin()
     }
