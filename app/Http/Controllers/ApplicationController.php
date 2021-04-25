@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\User;
 use App\Repositories\ApplicationRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ApplicationController extends Controller
 {
@@ -45,6 +46,19 @@ class ApplicationController extends Controller
                 'total' => Application::filterByDate($period)->count(),
                 'closed' => Application::filterByDate($period)->where('status', Application::CLOSED)->count(),
                 'opened' => Application::filterByDate($period)->where('status', Application::OPENED)->count()
+            ],
+            'stats' => [
+                'dts' => array_keys(Application::filterByDate($period)->oldest('updated_at')->get()->groupBy(function ($date) {
+                    return Carbon::parse($date->updated_at)->format('d.m.Y');
+                })->toArray()),
+                'cats' => ['Новое', 'Завершено'],
+                'categories' => [
+                    Application::filterByDate($period)->oldest('updated_at')->get()->groupBy('status')->map(function ($i) {
+                        return $i->groupBy(function ($date) {
+                            return Carbon::parse($date->updated_at)->format('d.m.Y');
+                        })->map->count();
+                    })
+                ],
             ]
         ];
 

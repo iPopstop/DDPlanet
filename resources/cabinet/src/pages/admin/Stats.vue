@@ -1,16 +1,25 @@
 <script>
 import {mapState} from 'vuex'
 import FormText from "@/components/Spectrum/Form/FormText"
+import apexchart from 'vue-apexcharts'
 
 export default {
   name: 'Stats',
-  components: {FormText},
+  components: {FormText, apexchart},
   computed: {
-    ...mapState('applications', ['statsForm', 'stats'])
+    ...mapState('applications', ['statsForm', 'stats', 'chart'])
   },
   methods: {
     loadStats() {
-      this.$store.dispatch('applications/stats', this.statsForm)
+      this.$store.dispatch('applications/stats', this.statsForm).then(() => {
+        this.$refs.statsChart.updateSeries(this.chart.series)
+        this.$refs.statsChart.updateOptions({
+          xaxis: {
+            type: 'category',
+            categories: this.chart.chartOptions.xaxis.categories
+          }
+        })
+      })
     },
   },
   watch: {
@@ -55,6 +64,14 @@ export default {
               </div>
             </div>
           </div>
+        </div>
+        <div class="my-2">
+          <apexchart ref="statsChart"
+                     type="area"
+                     height="380"
+                     :options="chart.chartOptions"
+                     :series="chart.series"
+          />
         </div>
       </div>
     </div>

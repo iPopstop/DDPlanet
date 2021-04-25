@@ -46,6 +46,46 @@ export default () => (
         opened: 0
       }
     },
+    chart: {
+      series: [
+        {
+          name: 'Открыто',
+          data: [0, 0, 0]
+        },
+        {
+          name: 'Закрыто',
+          data: [0, 0, 0]
+        }
+      ],
+      chartOptions: {
+        chart: {
+          type: 'area',
+          height: 370,
+          stacked: false,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            distributed: false,
+          }
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: 'smooth',
+        },
+        xaxis: {
+          type: 'category',
+          labels: {
+            formatter: function(value) {
+              return moment(value).format('DD.MM.YYYY')
+            },
+          },
+          categories: ['24.04.2021', '25.04.2021'],
+        }
+      }
+    },
     form: []
   }
 )

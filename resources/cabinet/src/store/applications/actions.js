@@ -29,8 +29,11 @@ const actions = {
     })
   },
   stats({ commit }, payload) {
-	  API.applications.stats(payload).then(({ data }) => {
-      commit('stats', data.data)
+    return new Promise((resolve, reject) => {
+      API.applications.stats(payload).then((response) => {
+        commit('stats', response.data)
+        resolve(response)
+      }).catch(err => reject(err))
     })
   },
   create({ commit }, payload) {
